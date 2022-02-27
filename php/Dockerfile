@@ -12,6 +12,8 @@ RUN apt update \
 RUN pecl install mongodb && docker-php-ext-enable mongodb
 RUN echo "extension=mongodb.so" >> /usr/local/etc/php/conf.d/mongodb.ini
 
+#CMD ["mongod", "--bind_ip", "0.0.0.0"]
+
 WORKDIR /var/www/symfony_docker
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
